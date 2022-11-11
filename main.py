@@ -34,7 +34,7 @@ def internal_forces(cut): # step 1
     if cut >= length:
         M = 0
     elif cut >= load:
-        M = load*r_a - (cut-load)(r_a-400)
+        M = load*r_a - (cut-load)*(r_a-400)
     else:
         M = load*r_a
 
