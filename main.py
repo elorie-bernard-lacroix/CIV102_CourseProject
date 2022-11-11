@@ -18,6 +18,7 @@ def shear_force(cut):
     '''
     global load  # placement of load
     global length  # length of bridge in mm
+    global r_a, r_b
 
     V = 0
     if cut >= length:
@@ -35,6 +36,7 @@ def bending_moment(cut):
     '''
     global load  # placement of load
     global length  # length of bridge in mm
+    global r_a, r_b
 
     M = 0
     if cut >= length:
