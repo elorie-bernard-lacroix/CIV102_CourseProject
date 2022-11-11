@@ -12,9 +12,9 @@ def internal_forces(cut): # step 1
 
     Input: "cut" is the placement of the cut/location of interest for shear forces
     '''
-    # declaring local variables
+    # declaring variables
     global load  # placement of load
-    length = 240  # length of bridge in mm
+    global length  # length of bridge in mm
 
     # calculating reaction forces
     r_a, r_b  # reaction forces at both supports (a and b)
@@ -23,17 +23,17 @@ def internal_forces(cut): # step 1
 
     # calculating internal forces
     V = 0
-    if cut > length:
+    if cut >= length:
         V = r_a - 400 + r_b
-    elif cut > load:
+    elif cut >= load:
         V = r_a - 400
     else:
         V = r_a
 
     M = 0
-    if cut > length:
+    if cut >= length:
         M = 0
-    elif cut > load:
+    elif cut >= load:
         M = load*r_a - (cut-load)(r_a-400)
     else:
         M = load*r_a
@@ -107,6 +107,7 @@ def SF_BM_capacities(): # step 8
 
 if '__name__' == '__main__':
     load = input("starting location of train (0 ≤ xtrain ≤ 240 mm): ")
+    length = 240 # length of bridge in mm
 
     max_capacities()
     min_FOS()
